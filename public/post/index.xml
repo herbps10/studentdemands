@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Student Demands</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Student Demands</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Student Demands</title>
+      <link>/2020/07/31/student-demands/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/07/31/student-demands/</guid>
+      <description>The Covid-19 epidemic and the murder of George Floyd precipitated a wave of student activism in 2020. This website is a database of the demands students have presented to their educational institutions in response. The intention of the project is to document the work of student activists and to serve as a resource for activists drafting new campaigns at their institutions.
+The database currently contains 47 documents from 37 institutions.</description>
+    </item>
+    
+  </channel>
+</rss>

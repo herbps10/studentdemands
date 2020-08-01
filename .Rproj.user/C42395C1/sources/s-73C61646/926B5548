@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1596223288031.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1310793034",
+    "id" : "926B5548",
+    "lastKnownWriteTime" : 1596223727,
+    "last_content_update" : 1596223727669,
+    "path" : "C:/Users/herbp/studentdemands/themes/hugo-lithium/layouts/_default/list.html",
+    "project_path" : "themes/hugo-lithium/layouts/_default/list.html",
+    "properties" : {
+        "cursorPosition" : "21,4",
+        "marks" : "<:2,0\n>:2,0",
+        "scrollLine" : "1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "html"
+}

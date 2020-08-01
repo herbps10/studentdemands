@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Merriweather'), local('Merriweather-Regular'),
+       url('../fonts/merriweather-v13-latin-regular.woff2') format('woff2'),
+       url('../fonts/merriweather-v13-latin-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'),
+       url('../fonts/lato-v11-latin-regular.woff2') format('woff2'),
+       url('../fonts/lato-v11-latin-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/open-sans-v17-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+       url('../fonts/open-sans-v17-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/open-sans-v17-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/open-sans-v17-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/open-sans-v17-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/open-sans-v17-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+/* bevan-regular - latin */
+@font-face {
+  font-family: 'Bevan';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/bevan-v11-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Bevan Regular'), local('Bevan-Regular'),
+       url('../fonts/bevan-v11-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/bevan-v11-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/bevan-v11-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/bevan-v11-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/bevan-v11-latin-regular.svg#Bevan') format('svg'); /* Legacy iOS */
+}
+body {
+  font-family: 'Open Sans', serif;
+}
+h1, h2, h3, h4, h5, h6, .nav, .article-duration, .archive-item-link, .footer {
+  /*font-family: 'Open Sans', sans-serif;*/
+  font-family: "Bevan";
+  text-transform: uppercase;
+}

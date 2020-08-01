@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+    <div class="wrapper">
+    <header class='center'>
+      <h1>STUDENT DEMANDS</h1>
+    </header>
