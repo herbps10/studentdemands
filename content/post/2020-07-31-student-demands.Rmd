@@ -77,4 +77,6 @@ _Field Descriptions_
 
 ## About
 
+This project was started by Herb Susmann ([@herbps10](https://twitter.com/herbps10)), a graduate student at the University of Massachusetts Amherst. The source code for the website is available on Github: [herbps10/studentdemands](https://github.com/herbps10/studentdemands). 
+
 </div>
