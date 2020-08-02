@@ -53,7 +53,7 @@ df %>%
 
 
 ## Contribute
-If you know of a petition or set of demands that aren't in the database, please consider submitting it for inclusion: [Google Form](https://forms.gle/bfRPDoVzp3ydNiYT6).
+If you know of a petition, set of demands, or news article that isn't in the database, please consider submitting it for inclusion: [Google Form](https://forms.gle/bfRPDoVzp3ydNiYT6).
 
 <br/>
 
