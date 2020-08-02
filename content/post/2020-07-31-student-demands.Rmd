@@ -62,7 +62,7 @@ The database is organized around primary documents which describe demands to aca
 
 _Scope_
 
-Any demands presented to higher educational institutions since January 1, 2020. 
+Any demands presented to higher educational institutions or institutions related to higher educations (such as sports organizations) since January 1, 2020. 
 
 
 _Field Descriptions_
