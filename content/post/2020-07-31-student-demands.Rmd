@@ -27,7 +27,7 @@ df <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1NSiHmcJ
 <div class='intro'>
 <div class='center'>
 
-In 2020, students have led a wave of activism in response to the dual crises of the Covid-19 epidemic and systematic racism. This website is a database of the demands students have presented to their educational institutions in response to these crises. The intention of the project is to document the work of student activists and to serve as a resource for activists drafting new campaigns at their institutions.
+The Covid-19 epidemic and the murder of George Floyd by a police officer in Minneapolis precipitated a wave of student activism in 2020. This website is a database of the demands students have presented to their educational institutions in response. The intention of the project is to document the work of student activists and to serve as a resource for activists drafting new campaigns at their institutions.
 
 The database currently contains `r nrow(df)` documents from `r nrow(distinct(df, Institution))` institutions.
 
