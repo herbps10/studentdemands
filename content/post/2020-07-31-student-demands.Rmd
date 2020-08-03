@@ -11,6 +11,14 @@ tags: []
 library(tidyverse)
 library(DT)
 library(googlesheets4)
+library(rvest)
+
+change_petition_signature_count <- function(url) {
+  Sys.sleep(1)
+  dat <- read_html(url)
+  json <- html_nodes(dat, "script")[[1]] %>% html_text() %>% str_trim() %>% str_replace("window.changeTargetingData = ", "") %>% str_replace(";$", "") %>% jsonlite::fromJSON()
+  json$petition$signatureCount$total
+}
 
 knitr::opts_chunk$set(echo = FALSE)
 
@@ -18,9 +26,18 @@ link <- function(link, title) ifelse(is.na(link), "", glue::glue("<a href='{link
 
 df <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1NSiHmcJOFq8nlYVPxURbEE8uK1GFGRXXQFm87dSdN1Q/edit?usp=sharing", sheet = "Web Database") %>%
   arrange(desc(Date)) %>%
-  mutate(Link = link(Link, `Link Title`),
+  mutate(url = Link,
+         Link = link(Link, `Link Title`),
          Date = str_replace(strftime(Date, "%B %e, %Y"), "  ", " "),
          `Other Links` = str_replace_all(`Other Links`, "\n", "<br/>"))
+
+```
+
+```{r, include = FALSE, cache = TRUE}
+change_petitions <- df %>%
+  filter(str_detect(url, "change.org") == TRUE)
+
+counts <- map_int(change_petitions$url, change_petition_signature_count)
 
 ```
 
@@ -29,7 +46,12 @@ df <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1NSiHmcJ
 
 The crises of the Covid-19 epidemic and systematic societal racism, reflected in the murders of George Floyd, Ahmaud Arbery, and Breonna Taylor, among others, precipitated a wave of student activism in 2020. This website is a database of the demands students have presented to their educational institutions in response. The intention of the project is to document the work of student activists and to serve as a resource for activists drafting new campaigns at their institutions.
 
-The database currently contains `r nrow(df)` documents from `r nrow(distinct(df, Institution))` institutions.
+_Summary_
+
+- The database currently contains `r nrow(df)` documents from `r nrow(distinct(df, Institution))` institutions.
+- The documents include `r nrow(change_petitions)` Change.org petitions totalling `r scales::comma_format()(sum(counts))` signatures.
+
+Last updated `r str_replace(strftime(Sys.Date(), "%B %e, %Y"), " ", "") `.
 
 </div>
 </div>
@@ -77,7 +99,7 @@ _Field Descriptions_
 
 ## About
 
-This project was started by Herb Susmann [@herbps10](https://twitter.com/herbps10), a graduate student at the University of Massachusetts Amherst. The source code for the website is available on Github: [herbps10/studentdemands](https://github.com/herbps10/studentdemands). 
+This project was started by Herb Susmann ([\@herbps10](https://twitter.com/herbps10)), a graduate student at the University of Massachusetts Amherst. The source code for the website is available on Github: [herbps10/studentdemands](https://github.com/herbps10/studentdemands). 
 
 <hr />
 
