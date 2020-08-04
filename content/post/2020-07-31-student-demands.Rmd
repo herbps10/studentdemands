@@ -12,6 +12,7 @@ library(tidyverse)
 library(reactable)
 library(googlesheets4)
 library(rvest)
+library(leaflet)
 
 change_petition_signature_count <- function(url) {
   Sys.sleep(1)
@@ -28,7 +29,9 @@ df <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1NSiHmcJ
   arrange(desc(Date)) %>%
   mutate(url = Link,
          Link = link(Link, `Link Title`),
-         Date = str_replace(strftime(Date, "%B %e, %Y"), "  ", " "))
+         time = Date,
+         Date = str_replace(strftime(Date, "%B %e, %Y"), "  ", " ")) %>%
+  separate(Location, into = c("lat", "long"), sep = ", ", convert = TRUE)
 
 ```
 
@@ -83,6 +86,21 @@ df %>%
 
 <div class='center'>
 <br/>
+
+```{r}
+set.seed(1)
+na_or_blank <- function(x) ifelse(is.na(x), "", x)
+map_content <- glue::glue("
+<strong>{df$Institution}</strong> {na_or_blank(df$`Department or Organization`)}<br/>
+{na_or_blank(df$Link)} {na_or_blank(df$Date)}
+{na_or_blank(df$`Other Links`)}
+")
+df %>%
+  leaflet() %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addCircleMarkers(lng = jitter(df$long, factor = 0.5), lat = jitter(df$lat, factor = 0.5), popup = map_content, clusterOptions = TRUE)
+```
+
 
 --------
 
