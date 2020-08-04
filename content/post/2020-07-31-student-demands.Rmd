@@ -83,9 +83,7 @@ df %>%
   
 ```
 
-
-<div class='center'>
-<br/>
+<br/><br/>
 
 ```{r}
 set.seed(1)
@@ -96,11 +94,13 @@ map_content <- glue::glue("
 {na_or_blank(df$`Other Links`)}
 ")
 df %>%
-  leaflet() %>%
+  leaflet(width = "100%") %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
   addCircleMarkers(lng = jitter(df$long, factor = 0.5), lat = jitter(df$lat, factor = 0.5), popup = map_content, clusterOptions = TRUE)
 ```
 
+<div class='center'>
+<br/>
 
 --------
 
