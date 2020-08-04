@@ -9,7 +9,7 @@ tags: []
 
 ```{r setup, include = FALSE}
 library(tidyverse)
-library(DT)
+library(reactable)
 library(googlesheets4)
 library(rvest)
 
@@ -28,8 +28,7 @@ df <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1NSiHmcJ
   arrange(desc(Date)) %>%
   mutate(url = Link,
          Link = link(Link, `Link Title`),
-         Date = str_replace(strftime(Date, "%B %e, %Y"), "  ", " "),
-         `Other Links` = str_replace_all(`Other Links`, "\n", "<br/>"))
+         Date = str_replace(strftime(Date, "%B %e, %Y"), "  ", " "))
 
 ```
 
@@ -49,7 +48,7 @@ The crises of the Covid-19 epidemic and systematic societal racism, reflected in
 _Summary_
 
 - The database currently contains `r nrow(df)` documents from `r nrow(distinct(df, Institution))` institutions.
-- The documents include `r nrow(change_petitions)` Change.org petitions totalling `r scales::comma_format()(sum(counts))` signatures.
+- The documents include `r nrow(change_petitions)` Change.org petitions with a total of `r scales::comma_format()(sum(counts))` signatures.
 
 Last updated `r str_replace(strftime(Sys.Date(), "%B %e, %Y"), " ", "") `.
 
@@ -61,10 +60,24 @@ Last updated `r str_replace(strftime(Sys.Date(), "%B %e, %Y"), " ", "") `.
 
 ```{r, message = FALSE}
 
-
 df %>%
   select(`Institution`, `Department or Organization`, `Date`, `Link`, `Other Links`) %>%
-  datatable(escape = FALSE, autoHideNavigation = TRUE)
+  reactable(
+    sortable = TRUE, 
+    resizable = TRUE, 
+    filterable = TRUE, 
+    searchable = TRUE, 
+    striped = TRUE,
+    highlight = TRUE,
+    defaultPageSize = 10,
+    showPageSizeOptions = TRUE,
+    pageSizeOptions = c(10, 25, 50, 100),
+    columns = list(
+      Link = colDef(html = TRUE),
+      `Other Links` = colDef(html = TRUE)
+    )
+  )
+  
 ```
 
 
