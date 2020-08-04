@@ -96,7 +96,7 @@ map_content <- glue::glue("
 df %>%
   leaflet(width = "100%") %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
-  addCircleMarkers(lng = jitter(df$long, factor = 0.5), lat = jitter(df$lat, factor = 0.5), popup = map_content, clusterOptions = TRUE)
+  addCircleMarkers(lng = jitter(df$long, factor = 0.2), lat = jitter(df$lat, factor = 0.2), popup = map_content, clusterOptions = TRUE)
 ```
 
 <div class='center'>
@@ -115,7 +115,7 @@ The database is organized around primary documents which describe demands to aca
 
 _Scope_
 
-Any demands presented to higher educational institutions or institutions related to higher educations (such as sports organizations) since January 1, 2020. 
+Demands presented to higher educational institutions or institutions related to higher educations (such as sports organizations) since January 1, 2020 related to Covid-19 or systematic racism. 
 
 
 _Field Descriptions_
