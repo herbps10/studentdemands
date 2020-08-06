@@ -30,7 +30,7 @@ df <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1NSiHmcJ
   mutate(url = Link,
          Link = link(Link, `Link Title`),
          time = Date,
-         Date = str_replace(strftime(Date, "%B %e, %Y"), "  ", " ")) %>%
+         Date = str_replace(strftime(Date, "%B %e, %Y", tz = "GMT"), "  ", " ")) %>%
   separate(Location, into = c("lat", "long"), sep = ", ", convert = TRUE)
 
 ```
