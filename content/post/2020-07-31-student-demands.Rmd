@@ -61,7 +61,7 @@ Last updated `r str_replace(strftime(Sys.Date(), "%B %e, %Y"), " ", "") `.
 
 <br/>
 
-```{r, message = FALSE}
+```{r, message = FALSE, warning = FALSE}
 
 df %>%
   select(`Institution`, `Department or Organization`, `Date`, `Link`, `Other Links`) %>%
