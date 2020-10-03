@@ -35,7 +35,7 @@ df <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1NSiHmcJ
 
 ```
 
-```{r, include = FALSE, cache = TRUE}
+```{r petitions, include = FALSE, cache = TRUE}
 change_petitions <- df %>%
   filter(str_detect(url, "change.org") == TRUE)
 
@@ -61,10 +61,10 @@ Last updated `r str_replace(strftime(Sys.Date(), "%B %e, %Y"), " ", "") `.
 
 <br/>
 
-```{r, message = FALSE, warning = FALSE}
+```{r main_table, message = FALSE, warning = FALSE}
 
 df %>%
-  select(`Institution`, `Department or Organization`, `Date`, `Link`, `Other Links`) %>%
+  select(`Institution`, `Department or Organization`, `Tags`, `Date`, `Link`, `Other Links`) %>%
   reactable(
     sortable = TRUE, 
     resizable = TRUE, 
@@ -85,7 +85,7 @@ df %>%
 
 <br/><br/>
 
-```{r, warning = FALSE}
+```{r map, warning = FALSE}
 set.seed(1)
 na_or_blank <- function(x) ifelse(is.na(x), "", x)
 map_content <- glue::glue("
@@ -103,6 +103,32 @@ df %>%
 <br/>
 
 --------
+
+## Collection: University Police
+
+The documents below have been separated into a special collection for demands for reform or abolishment of university police departments.
+```{r police_collection, message = FALSE, warning = FALSE}
+
+df %>%
+  filter(Collection == "Police") %>%
+  select(`Institution`, `Department or Organization`, `Tags`, `Date`, `Link`, `Other Links`) %>%
+  reactable(
+    sortable = TRUE, 
+    resizable = TRUE, 
+    filterable = TRUE, 
+    searchable = TRUE, 
+    striped = TRUE,
+    highlight = TRUE,
+    defaultPageSize = 10,
+    showPageSizeOptions = TRUE,
+    pageSizeOptions = c(10, 25, 50, 100),
+    columns = list(
+      Link = colDef(html = TRUE),
+      `Other Links` = colDef(html = TRUE)
+    )
+  )
+  
+```
 
 
 ## Contribute
