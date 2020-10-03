@@ -107,6 +107,9 @@ df %>%
 ## Collection: University Police
 
 The documents below have been separated into a special collection for demands for reform or abolishment of university police departments.
+
+</div>
+</div>
 ```{r police_collection, message = FALSE, warning = FALSE}
 
 df %>%
@@ -130,6 +133,11 @@ df %>%
   
 ```
 
+
+<div class='center'>
+<br/>
+
+--------
 
 ## Contribute
 If you know of a petition, set of demands, or news article that isn't in the database, please consider submitting it for inclusion: [Google Form](https://forms.gle/bfRPDoVzp3ydNiYT6).
